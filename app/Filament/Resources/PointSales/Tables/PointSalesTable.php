@@ -46,9 +46,13 @@ class PointSalesTable
             ->filters([
                 //
             ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
+            ->recordActions([ 
+                Action::make('open')
+                    ->label('open pos')
+                    ->icon('heroicon-o-map-pin')
+                    ->color('success')
+                    ->url(fn ($record) => url("admin/point_of_sales/" . $record->branch_id))
+                    ->openUrlInNewTab(), 
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
