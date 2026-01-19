@@ -4,22 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Expense extends Model
 {
     protected $fillable = [
-        'name',
-        'price',
-        'coast',
         'category_id',
-        'branch_id',
         'description',
-        'points',
-        'image', 
-        'count', 
+        'price',
+        'branch_id',
     ];
 
     public function category(){
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(ExpenseCategory::class, 'category_id');
     }
 
     public function branch(){

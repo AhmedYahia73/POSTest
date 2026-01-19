@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\Categories\Tables;
+namespace App\Filament\Resources\OfferUsers\Tables;
 
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
-class CategoriesTable
+class OfferUsersTable
 {
     public static function configure(Table $table): Table
     {
@@ -18,20 +17,26 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                 ->searchable()
-                ->sortable(),  
-                ImageColumn::make('image')
-                ->label('image')
-                ->circular()
-                ->disk('public')
-                ->width(50)
-                ->height(50),
+                ->sortable(),
+                TextColumn::make('user')
+                ->searchable()
+                ->sortable(),
+                TextColumn::make('date')
+                ->searchable()
+                ->sortable(), 
+                ToggleColumn::make('status')
+                ->label('Status')
+                ->onColor('success')
+                ->offColor('danger'),
+                TextColumn::make('total')
+                ->searchable()
+                ->sortable(), 
             ])
             ->filters([
                 //
             ])
             ->recordActions([
                 EditAction::make(),
-                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
