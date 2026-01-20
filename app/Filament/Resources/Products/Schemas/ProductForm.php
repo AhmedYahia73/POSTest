@@ -42,8 +42,7 @@ class ProductForm
                 ->required()
                 ->preload()
                 ->relationship(name: 'category', titleAttribute: 'name')
-                ->placeholder('Select a Category'),
-
+                ->placeholder('Select a Category'), 
                 FileUpload::make('image')
                 ->label('Product Image')
                 ->image()
