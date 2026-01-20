@@ -37,12 +37,12 @@ class Menu extends Page implements HasForms
             ->statePath('data') // ربط البيانات بمصفوفة data
             ->components([
                 Select::make('branch_id')
-                    ->label('Select Branch')
-                    ->options(\App\Models\Branch::pluck('name', 'id'))
-                    ->live()
-                    ->afterStateUpdated(function ($state) {
-                        $this->branch_id = $state;
-                    }),
+                ->label('Select Branch')
+                ->options(\App\Models\Branch::pluck('name', 'id'))
+                ->live()
+                ->afterStateUpdated(function ($state) {
+                    $this->branch_id = $state;
+                }),
             ]);
     }
 }
