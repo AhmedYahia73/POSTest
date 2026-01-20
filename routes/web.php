@@ -12,3 +12,7 @@ Route::get('/admin/point_of_sales/{id}', function ($id) {
     ->get();
     return view('pos', compact("categories", "products"));
 });
+
+Route::get('/admin/Branch/{branch_id}', function ($branch_id) { 
+    return view('menue', compact("branch_id"));
+});
